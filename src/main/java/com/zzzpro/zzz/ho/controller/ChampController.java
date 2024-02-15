@@ -28,6 +28,7 @@ public class ChampController {
 			ChampDto champDto = new ChampDto();
 			champDto.setChampionName(cDto.getChampionName());
 			champDto.setTeamPosition(cDto.getTeamPosition());
+			champDto.setTier1(cDto.getTier1());
 			champDto.setWin_percentage(winrate);
 			model.addAttribute("champDto",champDto);
 			return "winrate";

@@ -17,5 +17,6 @@ public class ChampDto {
 	private String teamPosition;
 	private String win;
 	private String win_percentage;
+	private String tier1;
 
 }

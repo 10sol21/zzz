@@ -56,8 +56,18 @@ public class RuneDto {
 	public String value10;
 	public String value11;
 	public String value12;
+	public String skill_count;
+
+	//======================================================================= personal
+	
+	public String summoner1Id;
+	public String summoner2Id;
+	public String spell_Count;
 
 
+	
+	
+	
 	
 	
 	

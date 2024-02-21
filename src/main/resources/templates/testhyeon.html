@@ -7,7 +7,7 @@
 <body>
 승률 페이지<br>
 <th:block th:if="${RuneDto != null}">
-	<div th:text="${value1}"></div>
+	<div th:text="|${RuneDto.championName_KR}|"></div>
 	<img th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perkStyle/' + ${RuneDto.main_name} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}">
 	<br>
 	<img th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perk/' + ${RuneDto.main_perks1} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}">
@@ -32,7 +32,11 @@
 	<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/'+ ${RuneDto.core2} +'.png'}">
 	<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/'+ ${RuneDto.core3} +'.png'}">
 	<br>
-	<div th:text="${value1}"></div>
+	<div th:text="|LV1: ${RuneDto.value1}|"></div>
+	<br>
+	<div th:text="|LV1: ${RuneDto.value2}|"></div>
+	<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.3.1/img/spell/'+ ${RuneDto.summoner1Id} +'.png'}">
+	<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.3.1/img/spell/'+ ${RuneDto.summoner2Id} +'.png'}">
 
 	
 

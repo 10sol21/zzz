@@ -11,5 +11,8 @@ public interface RuneDao {
 	RuneDto item_winrate(RuneDto runeDto);
 
 	RuneDto skill_tree_winrate(RuneDto runeDto);
+	
+	RuneDto spell_winrate(RuneDto runeDto);
+
 
 }

@@ -25,4 +25,8 @@ public class RuneService {
     public RuneDto skill_tree_winrate(RuneDto rDto) {
         return runeDao.skill_tree_winrate(rDto);
     }
+    
+    public RuneDto spell_winrate(RuneDto rDto) {
+        return runeDao.spell_winrate(rDto);
+    }
 }

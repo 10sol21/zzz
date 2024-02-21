@@ -74,22 +74,3 @@ public class controller {
 			RuneDto.setValue1(skill_tree_winrate.value1);
 			RuneDto.setValue2(skill_tree_winrate.value2);
 			RuneDto.setValue3(skill_tree_winrate.value3);
-
-			//------------------------------------------------------
-			RuneDto.setSummoner1Id(spell_winrate.summoner1Id);
-			RuneDto.setSummoner2Id(spell_winrate.summoner2Id);
-
-
-
-
-//			RuneDto.setWin_percentage(Rune_winrate);
-			System.out.println(RuneDto);
-			model.addAttribute("RuneDto",RuneDto);
-			return "testhyeon";
-		}else {
-			return "redirect:/testhyeon";
-		}
-		
-	}
-}
-

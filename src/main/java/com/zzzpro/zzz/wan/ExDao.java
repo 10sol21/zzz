@@ -16,12 +16,4 @@ public interface ExDao {
 
 	List<ExDto> test(ExDto eDto);
 
-	List<ExDto> allWinRate(ExDto eDto);
-
-//	List<ExDto> allPickRate(ExDto eDto);
-
-//	List<ExDto> allWinRate(ExDto eDto);
-
-//	List<ExDto> allBanRate(ExDto eDto);
-
 }

@@ -18,14 +18,6 @@ public class ExService {
 		return eDao.linePick(eDto);
 	}
 
-	public List<ExDto> allWinRate(ExDto eDto) {
-		return eDao.allWinRate(eDto);
-	}
-
-//	public List<ExDto> allPickRate(ExDto eDto) {
-//		return eDao.allPickRate(eDto);
-//	}
-
 	public List<ExDto> test(ExDto eDto) {
 		eDto.setLine('%' + eDto.getLine() + '%');
 		if (eDto.getLine().equals("%all%")) {
@@ -34,10 +26,5 @@ public class ExService {
 			return eDao.test(eDto);
 		}
 	}
-
-//	public List<ExDto> allWinRate(List<ExDto> champions) {
-//		// TODO Auto-generated method stub
-//		return eDao.allWinRate(champions);
-//	}
 
 }

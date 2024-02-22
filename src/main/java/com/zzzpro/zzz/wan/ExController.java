@@ -1,5 +1,6 @@
 package com.zzzpro.zzz.wan;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,6 @@ public class ExController {
 		List<ExDto> champions = eSer.champions(eDto);
 		model.addAttribute("champions", champions);
 		log.info("@@챔피언 전체이름 -> " + champions);
-		List<ExDto> allWinRate = eSer.allWinRate(eDto);
 		return "ex";
 	}
 

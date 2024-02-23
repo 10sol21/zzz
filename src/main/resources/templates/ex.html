@@ -58,13 +58,14 @@
 							<td style="width: 25%">카운터</td>
 						</tr>
 					</thead>
-                    <tbody>
-						<tr th:each="stat : ${champions}">
-							<td></td>
+					<tbody>
+						<tr th:each="stat, statIndex : ${champions}">
+							<td th:text="${statIndex.index + 1}">순위</td>
 							<td class="left">
 								<a th:href="@{/ex/{champions}(champions=${stat.championName})}">
-									<img th:src="|https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${stat.championName}.png|"
-									alt="초상화">
+									<img
+									th:src="|https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${stat.championName}.png|"
+									alt="초상화"> 
 									<strong th:text="${stat.championName_kr}"></strong>
 								</a>
 							</td>
@@ -76,7 +77,8 @@
 							<td>카운터</td>
 						</tr>
 					</tbody>
-                </table>
+
+				</table>
             </div>
         </div>
     </div>

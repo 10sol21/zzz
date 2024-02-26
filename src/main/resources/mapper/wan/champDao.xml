@@ -21,4 +21,11 @@
 		WHERE championName_kr = #{allName};
 	</select>
 	
+<select id="linePicks" parameterType="java.util.Map" resultType="java.util.Map">
+    SELECT championName, teamPosition,
+    concat(ROUND((COUNT(*) / (SELECT COUNT(*) FROM zzz_datas_detail WHERE championName = 'garen') * 100), 1),'%') AS pickrate
+FROM zzz_datas_detail WHERE championName = 'garen'
+GROUP BY teamPosition;
+</select>
+	
 </mapper>

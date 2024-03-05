@@ -26,16 +26,18 @@
     <div id="result">
     </div>
 
-    <script>
-        $(document).ready(function () {
-            $("#button").click(function () {
-                var name = $("#name").val();
-                var tag = $("#tag").val();
-                // 두 번째 HTML 파일로 이동하면서 데이터 전달
-                window.location.href = "/summonerSearch?name=" + name + "&tag=" + tag;
-            });
-        });
-    </script>
+<script>
+		$(document).ready(function () {
+			$("#input2").click(function () {
+				var nameAndTag = $("#nameAndTag").val();
+				var parts = nameAndTag.split("#");
+				var name = parts[0];
+				var tag = parts[1];
+				// 두 번째 HTML 파일로 이동하면서 데이터 전달
+				window.location.href = "/summonerSearch?name=" + name + "&tag=" + tag;
+			});
+		});
+	</script>
 
 </body>
 

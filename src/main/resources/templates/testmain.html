@@ -6,7 +6,10 @@
 <link rel="stylesheet" href="/css/exstyle.css">
 </head>
 <body>
-
+		<header class="insert">
+        	<div th:insert="~{header :: h1}" class="logo">로고</div>
+        	<div th:insert="~{header :: ul}" class="header">헤더</div>
+        </header>
 
 	<form action = "/champ/champinfo" >
 	<select name ="tier1" size="1">

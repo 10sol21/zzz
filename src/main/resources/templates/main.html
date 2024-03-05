@@ -27,6 +27,7 @@
 	 <div class="header">
  	<nav>
  	<ul>
+ 		<li><button onclick="location.href='/'">홈</button></li>
  		<li><button onclick="location.href='/testmain'">챔피언 분석</button></li>
  		<li><button onclick="location.href='/ex'">챔피언랭킹</button></li>
  		<li><button onclick="location.href='/lolmate/list'">롤메이트</button></li>
@@ -41,12 +42,12 @@
 		<img id=img1 src="../img/zzzlogo.png" onclick="location.href='/'">
 <br><br><br>
 
-			<form id="">
-			<div class="search">
-				<input type="text" class="input" autofocus required
-					placeholder="플레이어 이름"	> 
-  				<input class="input2" type="submit" value="검색">	
-				</div>
+		<form id="myform">
+		<div class="search">
+        <input type="text" class="input"id="nameAndTag" name="nameAndTag" autofocus required placeholder="플레이어 이름">
+        <input class="input2" type="button" value="검색" id="button">
+	</div>
+	</form>
 				<br>
 				<br>
 				<br>
@@ -83,19 +84,21 @@
 					</th:block>
 
 				</table>
-
-			</form>
+				
+			
 		</div>
 <script>
-        $(document).ready(function () {
-            $("#button").click(function () {
-                var name = $("#name").val();
-                var tag = $("#tag").val();
-                // 두 번째 HTML 파일로 이동하면서 데이터 전달
-                window.location.href = "/summonerSearch?name=" + name + "&tag=" + tag;
-            });
-        });
-    </script>
+		$(document).ready(function () {
+			$("#button").click(function () {
+				var nameAndTag = $("#nameAndTag").val();
+				var parts = nameAndTag.split("#");
+				var name = parts[0];
+				var tag = parts[1];
+				// 두 번째 HTML 파일로 이동하면서 데이터 전달
+				window.location.href = "/summonerSearch?name=" + name + "&tag=" + tag;
+			});
+		});
+	</script>
 
 
 	

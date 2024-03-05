@@ -27,10 +27,10 @@ public class controller {
 		return "Runetest";
 	}
 
-	@GetMapping("/fast-api")
-	public String callFastApi() {
-		return "hello11111";
-	}
+//	@GetMapping("/fast-api")
+//	public String callFastApi() {
+//		return "hello11111";
+//	}
 	
 	
 	@GetMapping("/summonerSearch")

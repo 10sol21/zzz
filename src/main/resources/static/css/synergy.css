@@ -462,6 +462,26 @@ p {
 	border: 0;
 }
 
+.question-mark {
+	float: right;
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin: 0 300px 0 0;
+  }
+  .question-mark:before {
+    content: "?";
+    font-size: 160px;
+    font-weight: bold;
+    color: #000;
+    position: absolute;
+    top: -5%;
+    left: 32%;
+  }
 .question-mark1 {
 	width: 50px;
 	/* 물음표의 너비 */

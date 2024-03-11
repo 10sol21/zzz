@@ -10,6 +10,17 @@
 $('#lmListChoice').on('click',function(){
 	$('#lmListTab').css('display','block');
 	$('#lmInfoTab').css('display','none');
+	var intervalId = setInterval(function() {
+		var element = document.getElementById('lmListTab');
+		var displayProperty = window.getComputedStyle(element).display;
+	    if (displayProperty === 'block') {
+			console.log('block')
+			lmAjax()
+	    } else {
+			console.log('none')
+	        clearInterval(intervalId);
+	    }
+	}, 3000);
 })
 $('#lmInfoChoice').on('click',function(){
 	let id = document.getElementById('m_id').value

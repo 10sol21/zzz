@@ -25,7 +25,18 @@ $(()=>{
 
 /* ====================== 리스트 가져오는 함수 실행 ====================== */
 	lmAjax();
-	setInterval(function(){lmAjax()},3000);		// <- 3초마다 리스트 갱신
+	var intervalId = setInterval(function() {	// <- 탭이 활성화 되어있을 때만 3초마다 리스트 갱신
+		var element = document.getElementById('lmListTab');
+		var displayProperty = window.getComputedStyle(element).display;
+	    if (displayProperty === 'block') {
+			console.log('block')
+			lmAjax()
+	    } else {
+			console.log('none')
+	        clearInterval(intervalId);
+	    }
+	}, 3000);
+//	setInterval(function(){lmAjax()},3000);		// <- 3초마다 리스트 갱신
 /* ====================== 리스트 가져오는 함수 실행 끝 ====================== */
 })
 
@@ -73,7 +84,12 @@ function infoTabMyList(id){
 				const gameModeCell = $('<td>').text(lm.lm_gameMode)
 				const myPCell = $('<td>').html(divHtml(lm.lm_myPosition,'position'))
 				const findPCell = $('<td>').html(divHtml(lm.lm_findPosition,'position'))
-				const memoCell = $('<td>').text(lm.lm_memo)
+				const memoCell = $('<td>');
+				if(lm.lm_memo.length<=10){
+					memoCell.text(lm.lm_memo) // 작성자 메모
+				}else{
+					memoCell.text(lm.lm_memo.substring(0, 20)+'...');
+				}
 				const appCtnCell = $('<td>').text('');
 				if(lm.lm_app.length<1){
 					appCtnCell.text('  -  명');
@@ -139,7 +155,12 @@ function infoTabMyAppList(id){
 				const summonerNameCell = $('<td>').text(lm.lm_summonerName)
 				const myPCell = $('<td>').html(divHtml(lm.lm_myPosition,'position'))
 				const findPCell = $('<td>').html(divHtml(lm.lm_findPosition,'position'))
-				const memoCell = $('<td>').text(lm.lm_memo)
+				const memoCell = $('<td>');
+				if(lm.lm_memo.length<=10){
+					memoCell.text(lm.lm_memo) // 작성자 메모
+				}else{
+					memoCell.text(lm.lm_memo.substring(0, 20)+'...');
+				}
 				const btnCell = $('<td>').append($('<button>').attr('type', 'button').text('  신청 취소  ').on('click', function(event) {myAppDel(lm.lm_num, id, event);}));
 				
 				newRow.append(numCell,gameMateCell,gameModeCell,summonerNameCell,myPCell,findPCell,memoCell,btnCell)
@@ -202,6 +223,7 @@ function mL_Detail(lm_num,division){
 		if(division == '0'){
 			// 확인(작성자)
 			appList(lm_num);
+			
 		}else if(division == '1'){
 			// 신청
 			var al = lm.lm_app;
@@ -245,7 +267,9 @@ function appList(lm_num){
 			const textDiv = document.createElement('div');
 			textDiv.setAttribute('class', 'textDiv');
 			textDiv.textContent = '아직 신청자가 없습니다.'
+			
 			container.appendChild(textDiv);
+			container.appendChild(childDiv2());
 		}else{
 			var childDiv = document.createElement('div');
 			childDiv.setAttribute('id','lmAppList')
@@ -265,7 +289,7 @@ function appList(lm_num){
 				}else{
 					let chat = lm.lm_app_chat[i].lm_app_chat;
 					if(chat.length>10){
-						chatText.textContent = chat.substr(start[0, 10]);
+						chatText.textContent = chat.substr(start[0, 10]+'...');
 					}else{
 						chatText.textContent = chat;
 					}
@@ -279,52 +303,56 @@ function appList(lm_num){
 				childDiv.appendChild(appDiv);
 			}
 			
-			var childDiv2 = document.createElement('div');
-			childDiv2.setAttribute('id','lmCDBtnDiv')
-			var closeBtn = document.createElement('button');
-			closeBtn.textContent = '  닫기  ';
-	        closeBtn.setAttribute('class', 'closeBtn');
-	        closeBtn.onclick = function(){
-				$.ajax({ url:"/lolmate/close", data:{lm_num:lm_num} }).done(function(res){ 
-					if(res){
-						Swal.fire({
-							icon : "success",
-							text : "닫기 성공!",
-						});
-						location.reload();
-					}else{
-						Swal.fire({
-							icon : "error",
-							text : "닫기 실패..",
-						});
-						return;
-					} })
-			}
-			var deleteBtn = document.createElement('button');
-			deleteBtn.textContent = '  삭제  ';
-	        deleteBtn.setAttribute('class', 'deleteBtn');
-	        deleteBtn.onclick = function(){
-				$.ajax({ url:"/lolmate/delete", data:{lm_num:lm_num} }).done(function(res){ 
-					if(res){ 
-						Swal.fire({
-							icon : "success",
-							text : "삭제 성공!",
-						});
-						location.reload();
-					}else{
-						Swal.fire({
-							icon : "error",
-							text : "삭제 실패..",
-						});
-						return;
-					} })
-			}
-			childDiv2.appendChild(closeBtn);
-			childDiv2.appendChild(deleteBtn);
 			container.appendChild(childDiv);
-			container.appendChild(childDiv2);
+			container.appendChild(childDiv2());
 		}
 	})
+}
+
+function childDiv2(){
+	var childDiv2 = document.createElement('div');
+	childDiv2.setAttribute('id','lmCDBtnDiv')
+	var closeBtn = document.createElement('button');
+	closeBtn.textContent = '  닫기  ';
+    closeBtn.setAttribute('class', 'closeBtn');
+    closeBtn.onclick = function(){
+		$.ajax({ url:"/lolmate/close", data:{lm_num:lm_num} }).done(function(res){ 
+			if(res){
+				Swal.fire({
+					icon : "success",
+					text : "닫기 성공!",
+				});
+				location.reload();
+			}else{
+				Swal.fire({
+					icon : "error",
+					text : "닫기 실패..",
+				});
+				return;
+			} })
+	}
+	var deleteBtn = document.createElement('button');
+	deleteBtn.textContent = '  삭제  ';
+    deleteBtn.setAttribute('class', 'deleteBtn');
+    deleteBtn.onclick = function(){
+		$.ajax({ url:"/lolmate/delete", data:{lm_num:lm_num} }).done(function(res){ 
+			if(res){ 
+				Swal.fire({
+					icon : "success",
+					text : "삭제 성공!",
+				});
+				location.reload();
+			}else{
+				Swal.fire({
+					icon : "error",
+					text : "삭제 실패..",
+				});
+				return;
+			} })
+	}
+	childDiv2.appendChild(closeBtn);
+	childDiv2.appendChild(deleteBtn);
+	return childDiv2;
 }
 /* ====================== 내 글 신청자 리스트 생성 끝 ====================== */
 
@@ -455,7 +483,12 @@ function lmAjax(){
 					const myPCell = $('<td>').html(divHtml(lm.lm_myPosition,'position')) // 작성자 포지션
 					const winrateCell = $('<td>').text(lm.lm_winrate) // 작성자 승률
 					const findPCell = $('<td>').html(divHtml(lm.lm_findPosition,'position')) // 찾는 포지션
-					const memoCell = $('<td>').text(lm.lm_memo) // 작성자 메모
+					const memoCell = $('<td>');
+					if(lm.lm_memo.length<=10){
+						memoCell.text(lm.lm_memo) // 작성자 메모
+					}else{
+						memoCell.text(lm.lm_memo.substring(0, 20)+'...');
+					}
 					
 					const btnCell = $('<td>');
 					if(lm.m_id == id){

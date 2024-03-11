@@ -2,6 +2,7 @@ package com.zzzpro.zzz.sol.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.zzzpro.zzz.sol.dao.MemberDao;
@@ -59,18 +60,19 @@ public class MemberService {
 		return false;
 	}
 
-	public boolean login(MemberDto mDto, RedirectAttributes ra, HttpSession session) {
+	public boolean login(MemberDto mDto, Model mo, HttpSession session) {
 		log.info(" ========== > service - login: {}",mDto.getM_id()," < ==========");
 		//enPw.matches(mDto.getM_pw(),mDao.login(mDto))
 		MemberDto loginMDto = mDao.login(mDto);
-		
-		if(mDto.getM_pw().equals(loginMDto.getM_pw())) {
-			ra.addFlashAttribute("msg","로그인 성공!");
-			loginMDto.setM_pw(null);
-			session.setAttribute("member",loginMDto);
-			return true;
+		if(loginMDto != null) {
+			if(mDto.getM_pw().equals(loginMDto.getM_pw())) {
+				mo.addAttribute("msg","로그인 성공!");
+				loginMDto.setM_pw(null);
+				session.setAttribute("member",loginMDto);
+				return true;
+			}
 		}
-		ra.addFlashAttribute("msg","로그인 실패");
+		mo.addAttribute("msg","로그인 실패");
 		return false;
 	}
 	

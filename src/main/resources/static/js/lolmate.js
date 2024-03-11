@@ -269,7 +269,7 @@ function appList(lm_num){
 			textDiv.textContent = '아직 신청자가 없습니다.'
 			
 			container.appendChild(textDiv);
-			container.appendChild(childDiv2());
+			container.appendChild(childDiv2(lm_num));
 		}else{
 			var childDiv = document.createElement('div');
 			childDiv.setAttribute('id','lmAppList')
@@ -304,12 +304,12 @@ function appList(lm_num){
 			}
 			
 			container.appendChild(childDiv);
-			container.appendChild(childDiv2());
+			container.appendChild(childDiv2(lm_num));
 		}
 	})
 }
 
-function childDiv2(){
+function childDiv2(lm_num){
 	var childDiv2 = document.createElement('div');
 	childDiv2.setAttribute('id','lmCDBtnDiv')
 	var closeBtn = document.createElement('button');
@@ -336,19 +336,8 @@ function childDiv2(){
     deleteBtn.setAttribute('class', 'deleteBtn');
     deleteBtn.onclick = function(){
 		$.ajax({ url:"/lolmate/delete", data:{lm_num:lm_num} }).done(function(res){ 
-			if(res){ 
-				Swal.fire({
-					icon : "success",
-					text : "삭제 성공!",
-				});
 				location.reload();
-			}else{
-				Swal.fire({
-					icon : "error",
-					text : "삭제 실패..",
-				});
-				return;
-			} })
+			 })
 	}
 	childDiv2.appendChild(closeBtn);
 	childDiv2.appendChild(deleteBtn);

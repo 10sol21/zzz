@@ -28,6 +28,7 @@
 			<div id="login">
 				<h3>Login Page</h3>
 				<form id="loginfrm" method="post" action="/member/login">
+					<input type="hidden" name="page" th:value="${page}">
 					<div class="frm_item">아이디
 						<input type="text" name="m_id" class="input" placeholder="아이디를 입력하세요" maxlength="20" autocapitalize="off"
 						value="aaa">
@@ -44,6 +45,7 @@
 			<div id="join">
 				<h3>Join Page</h3>
 				<form id="join_frm" method="post" action="/member/join" onsubmit="return joinCheck()">
+					<input type="hidden" name="page" th:value="${page}">
 					<div class="frm_item">아이디
 						<input type="text" id="m_id" name="m_id" class="input" placeholder="아이디 입력" maxlength="20" autocapitalize="off">
 						<div id="idTip" style="display: none;"></div>

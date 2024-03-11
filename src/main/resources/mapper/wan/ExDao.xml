@@ -42,11 +42,15 @@
 	</select>
 
 	<select id="core3">
-		SELECT * FROM core3
-		WHERE championName=#{championName}
-		AND teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
-		ORDER BY
-		core3_count DESC
+<!-- 		SELECT * FROM core3 -->
+<!-- 		WHERE championName=#{championName} -->
+<!-- 		AND teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드' -->
+<!-- 		ORDER BY -->
+<!-- 		core3_count DESC -->
+			SELECT * FROM core3
+			WHERE core1!=core2 AND core1!=core3 AND core2!=core3 
+			AND championName=#{championName} AND teamposition=#{highest_pick_rate_position}
+			ORDER BY core3_count DESC
 	</select>
 
 	<select id="sitem">
@@ -95,7 +99,7 @@
 	</select>
 	
 	<select id="tabWin">
-		select * 
+		select championName, championName_kr, highest_pick_rate_position, winrate, pickrate, banrate 
 		from champList_emerald
 		where highest_pick_rate_position like #{highest_pick_rate_position} 
 		ORDER BY CASE WHEN pickrate >=10 THEN 0 ELSE 1 END, winrate DESC

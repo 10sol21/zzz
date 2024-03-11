@@ -95,11 +95,17 @@ ul {
 
 .header * {
 	cursor: pointer;
-		list-style-type: none;
+	list-style-type: none;
 	padding: 0;
 	margin: 0;
 	height: 40px;
 }
 
 
+.loginBox{
+	float:right;
+}
+.loginBox > p{
+	color:white !important;
+}
 

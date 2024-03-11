@@ -41,13 +41,12 @@
 					
 					<p th:text=" ' &ensp;작성날짜 ' + ${bDto.b_date} + ' &ensp; '"></p>
 					<p th:text=" ' &ensp;조회수 ' + ${bDto.b_view} + ' &ensp; '"></p>
-<!-- 					<p> &ensp;내용</p> -->
 					<p th:utext=" ${bDto.b_contents} + ' &ensp; '"></p>
 					
 					<th:block th:if="${session.member}!=null">
 						<th:block th:if="${session.member.m_nick}==${bDto.b_writer}">
-							<button type="button" class="crudBtn" th:onclick="UD([[${bDto.b_num}]],'U')">수정</button>
-							<button type="button" class="crudBtn" th:onclick="UD([[${bDto.b_num}]],'D')">삭제</button>
+							<button type="button" class="crudBtn" th:onclick="bUD([[${bDto.b_num}]],'U')">수정</button>
+							<button type="button" class="crudBtn" th:onclick="bUD([[${bDto.b_num}]],'D')">삭제</button>
 						</th:block>
 					</th:block>
 					<th:block th:if="${session.member}==null and ${bDto.unnamed == 1}" id="anoUDBTN">

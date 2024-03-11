@@ -7,7 +7,7 @@
  */
 
 
-function UD(num,UD){
+function bUD(num,UD){
 	let form = document.createElement('form');	// form 태그 생성
     let input;
     input = document.createElement('input');	// input 태그 생성
@@ -40,7 +40,7 @@ function unUD(num,UD){
 	}).done(function(res){
 		console.log("res: ",res)
 		if(res=="ok"){
-		    UD(num,UD)
+		    bUD(num,UD)
 		}else{
 			alert('비밀번호가 틀렸거나 오류가 발생했습니다.')
 			document.getElementById('unBPw').value=null

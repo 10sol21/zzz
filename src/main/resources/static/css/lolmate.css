@@ -12,6 +12,7 @@
 
 .sePoDiv{
 	display: inline-block;
+    vertical-align: middle;
 }
 
 .serchMateDiv,#dmBtn {
@@ -161,7 +162,10 @@ label{
 	overflow: auto;
 	padding: auto;
 	width: 100%;
-	height: 200px;
+	height: 180px;
+}
+#chat-div>*{
+	margin-bottom: 10px;
 }
 
 .myAppendChat>div{
@@ -216,19 +220,20 @@ label{
 	position: absolute;
 	height: 55px;
 	width: 6%;
-	top: 13px;
-	right: 5px;
+	top: 5px;
+	right: 0px;
 }
 #chat-backBtn{
 	height: 30px;
 	width: 30px;
-	top: 10px;
-	left: 5px;
+	float: left;
 	margin: 5px;
+	margin-left: 10px;
 }
 .textDiv{
 	margin: auto;
 	text-align: center;
+	height: 250px;
 }
 
 #lmAppList{
@@ -247,6 +252,7 @@ label{
 	height: 50px;
 	align-items: center;
 	display: flex;
+}
 .lmAppDiv > h5{
 	text-align: right;
 	color: #C8AA6E;
@@ -262,8 +268,9 @@ label{
 	padding-left: 20px;
 }
 #lmCDBtnDiv > button{
-	float: right;
-	margin-right: 10px;
+/* 	float: right; */
+/* 	margin-right: 10px; */
+	bottom:0px;
 }
 
 .noText{
@@ -271,7 +278,7 @@ label{
 }
 
 .chatTextDiv{
-	font-size: 1.2em;
+	font-size: 1.1em !important;
 }
 
 

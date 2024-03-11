@@ -27,6 +27,27 @@
 			<div th:insert="~{header :: ul}" class="header">헤더</div>
 		</header>
 		
+		<br>
+		
+		<th:block th:if="${session.member != null}">
+			<div class="loginBox">
+				<input type="hidden" id="m_id" name="m_id" th:value="${session.member.m_id}">
+				<p th:text="${session.member.m_nick}"></p>
+				<button onclick="location.href='/member/logout'">로그아웃</button>
+			</div>
+		</th:block>
+		<th:block th:if="${session.member == null}">
+			<div class="loginBox">
+				<input type="hidden" id="m_id" name="m_id">
+				<form action="/member/loginfrm">
+					<input type="hidden" name="page" th:value="'board/list?page='+${paging.nowP}">
+					<button type="submit">로그인</button>
+				</form>
+			</div>
+		</th:block>
+		
+		<br><br>
+		
 		<div class="allSmallBox">
 			
 			<button type="button" class="crudBtn write" onclick="location.href='/board/boardWrite'">글 작성</button>

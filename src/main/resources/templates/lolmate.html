@@ -30,13 +30,23 @@
 		</header>
 
 		<th:block th:if="${session.member != null}">
-			<input type="hidden" id="m_id" name="m_id" th:value="${session.member.m_id}">
+			<div class="loginBox">
+				<input type="hidden" id="m_id" name="m_id" th:value="${session.member.m_id}">
+				<p th:text="${session.member.m_nick}"></p>
+				<button onclick="location.href='/member/logout'">로그아웃</button>
+			</div>
 		</th:block>
-		<th:block th:if="${session.member == null}">
-			<input type="hidden" id="m_id" name="m_id">
+		<th:block th:if="${session.member == null}" class="loginBox">
+			<div class="loginBox">
+				<input type="hidden" id="m_id" name="m_id">
+				<form action="/member/loginfrm">
+					<input type="hidden" name="page" value="lolmate/list">
+					<button type="submit">로그인</button>
+				</form>
+			</div>
 		</th:block>
-
-		<h3>LOL-mate</h3>
+		
+		<br><br>
 
 		<div id="lmNotionDiv">
 			<h3>내용 들어갈 예정</h3>

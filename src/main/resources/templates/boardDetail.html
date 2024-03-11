@@ -24,24 +24,45 @@
 			<div th:insert="~{header :: ul}" class="header">헤더</div>
 		</header>
 		
+		<br>
+		
+		<th:block th:if="${session.member != null}">
+			<div class="loginBox">
+				<input type="hidden" id="m_id" name="m_id" th:value="${session.member.m_id}">
+				<p th:text="${session.member.m_nick}"></p>
+				<button onclick="location.href='/member/logout'">로그아웃</button>
+			</div>
+		</th:block>
+		<th:block th:if="${session.member == null}">
+			<div class="loginBox">
+				<input type="hidden" id="m_id" name="m_id">
+				<form action="/member/loginfrm">
+					<input type="hidden" name="page" th:value="'board/detail?b_num='+${bDto.b_num}">
+					<button type="submit">로그인</button>
+				</form>
+			</div>
+		</th:block>
+		
+		<br>
+		
 		<div class="allSmallBox">
 			<div class="bDtoDIV">
 				<th:block th:if="${bDto}!=null">
-					<p th:if="${bDto.unnamed == 1}"><b>익명 게시글</b></p>
+					<p th:if="${bDto.unnamed == 1}"><b>익명 게시글</b></p><br>
 					
-					<p th:text=" ' &ensp;글번호 ' + ${bDto.b_num} + ' &ensp; '"></p>
-					<p th:text=" ' &ensp;제목 ' + ${bDto.b_title} + ' &ensp; '"></p>
+					<p th:text=" ' &ensp;글번호&ensp; ' + ${bDto.b_num} + ' &ensp; '"></p><br>
+					<p th:text=" ' &ensp;제목&ensp; ' + ${bDto.b_title} + ' &ensp; '"></p><br>
 					
 					<th:block th:if="${bDto.unnamed == 1}">
-						<p th:text=" ' &ensp;작성자 ' + ${bDto.b_writerNick} + ' &ensp; '"></p>
+						<p th:text=" ' &ensp;작성자&ensp; ' + ${bDto.b_writerNick} + ' &ensp; '"></p><br>
 					</th:block>
 					<th:block th:if="${bDto.unnamed == 0}">
-						<p th:text=" ' &ensp;작성자 ' + ${bDto.b_writer} + ' &ensp; '"></p>
+						<p th:text=" ' &ensp;작성자&ensp; ' + ${bDto.b_writer} + ' &ensp; '"></p><br>
 					</th:block>
 					
-					<p th:text=" ' &ensp;작성날짜 ' + ${bDto.b_date} + ' &ensp; '"></p>
-					<p th:text=" ' &ensp;조회수 ' + ${bDto.b_view} + ' &ensp; '"></p>
-					<p th:utext=" ${bDto.b_contents} + ' &ensp; '"></p>
+					<p th:text=" ' &ensp;작성날짜&ensp; ' + ${bDto.b_date} + ' &ensp; '"></p><br>
+					<p th:text=" ' &ensp;조회수&ensp; ' + ${bDto.b_view} + ' &ensp; '"></p><br>
+					<p th:utext=" ${bDto.b_contents} + ' &ensp; '"></p><br>
 					
 					<th:block th:if="${session.member}!=null">
 						<th:block th:if="${session.member.m_nick}==${bDto.b_writer}">

@@ -22,12 +22,15 @@
 			</header>
 		</div>
 		<header style="display: flex; justify-content: center">
-			<img th:alt="초상화"
-				th:src="|https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${championName}.png|"
-				alt="초상화" class="divide" style="width: 100px; height: 100px">
+			<div class="image-container">
+				<img
+					th:src="|https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${championName}.png|"
+					class="divide orange">
+				<strong th:text="1" class="overlay-text"></strong>
+			</div>
 			<!-- 탭 메뉴 시작 -->
 			<table style="background-color: #0A1428;">
-				<div id="output"></div>
+<!-- 				<div id="output"></div> -->
 				<tr th:each="mostLine : ${mostLine}">
 					<td onclick="showTab('tab1')" class="tab"><img
 						th:src="@{/img/position/Diamond-Top.png}">
@@ -124,29 +127,58 @@
 							<td colspan="2" th:each="skill3lv, Index : ${skill3lv}"
 								th:if="${Index.index lt 1}">
 								<div>
-									<img
-										th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value1} == 1 ? 'Q' : (${skill3lv.value1} == 2 ? 'W' : (${skill3lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
-									<span class="arrow-right"></span> <img
-										th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value2} == 1 ? 'Q' : (${skill3lv.value2} == 2 ? 'W' : (${skill3lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
-									<span class="arrow-right"></span> <img
-										th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value3} == 1 ? 'Q' : (${skill3lv.value3} == 2 ? 'W' : (${skill3lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
+									<span class="image-container">
+										<img
+											th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value1} == 1 ? 'Q' : (${skill3lv.value1} == 2 ? 'W' : (${skill3lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
+										<strong th:text="1" class="overlay-tip"></strong>
+									</span>
+									<span class="arrow-right"></span>
+									<span class="image-container">
+										<img
+											th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value2} == 1 ? 'Q' : (${skill3lv.value2} == 2 ? 'W' : (${skill3lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
+										<strong th:text="1" class="overlay-tip"></strong>
+									</span>
+									<span class="arrow-right"></span>
+									<span class="image-container">
+										<img
+											th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value3} == 1 ? 'Q' : (${skill3lv.value3} == 2 ? 'W' : (${skill3lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
+										<strong th:text="1" class="overlay-tip"></strong>
+									</span>
 									<div th:text="'승률 ' + ${skill3lv.skill_win_rate} + '%'"></div>
 									<div th:text="'픽률 ' + ${skill3lv.skill_percentage} + '%'"></div>
 								</div>
 							</td>
 							<td colspan="2" th:each="skill6lv, Index : ${skill6lv}"
-								th:if="${Index.index lt 1}"><img
-								th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value1} == 1 ? 'Q' : (${skill6lv.value1} == 2 ? 'W' : (${skill6lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
-								<span class="arrow-right"></span> <img
-								th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value2} == 1 ? 'Q' : (${skill6lv.value2} == 2 ? 'W' : (${skill6lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
-								<span class="arrow-right"></span> <img
-								th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value3} == 1 ? 'Q' : (${skill6lv.value3} == 2 ? 'W' : (${skill6lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
-								<span class="arrow-right"></span> <img
-								th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value4} == 1 ? 'Q' : (${skill6lv.value4} == 2 ? 'W' : (${skill6lv.value4} == 3 ? 'E' : 'R'))) + '.png'}">
-								<span class="arrow-right"></span> <img
-								th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value5} == 1 ? 'Q' : (${skill6lv.value5} == 2 ? 'W' : (${skill6lv.value5} == 3 ? 'E' : 'R'))) + '.png'}">
-								<span class="arrow-right"></span> <img
-								th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value6} == 1 ? 'Q' : (${skill6lv.value6} == 2 ? 'W' : (${skill6lv.value6} == 3 ? 'E' : 'R'))) + '.png'}">
+								th:if="${Index.index lt 1}">
+								<span class="image-container">
+									<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value1} == 1 ? 'Q' : (${skill6lv.value1} == 2 ? 'W' : (${skill6lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
+									<strong th:text="1" class="overlay-tip"></strong>
+								</span>
+								<span class="arrow-right"></span>
+								<span class="image-container">
+								 	<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value2} == 1 ? 'Q' : (${skill6lv.value2} == 2 ? 'W' : (${skill6lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
+									<strong th:text="1" class="overlay-tip"></strong>
+								</span>
+								<span class="arrow-right"></span>
+								<span class="image-container">
+									<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value3} == 1 ? 'Q' : (${skill6lv.value3} == 2 ? 'W' : (${skill6lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
+								<strong th:text="1" class="overlay-tip"></strong>
+								</span>
+								<span class="arrow-right"></span>
+								<span class="image-container">
+									<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value4} == 1 ? 'Q' : (${skill6lv.value4} == 2 ? 'W' : (${skill6lv.value4} == 3 ? 'E' : 'R'))) + '.png'}">
+									<strong th:text="1" class="overlay-tip"></strong>
+								</span>
+								<span class="arrow-right"></span> 
+								<span class="image-container">
+									<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value5} == 1 ? 'Q' : (${skill6lv.value5} == 2 ? 'W' : (${skill6lv.value5} == 3 ? 'E' : 'R'))) + '.png'}">
+									<strong th:text="1" class="overlay-tip"></strong>
+								</span>
+								<span class="arrow-right"></span> 
+								<span class="image-container">
+									<img th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value6} == 1 ? 'Q' : (${skill6lv.value6} == 2 ? 'W' : (${skill6lv.value6} == 3 ? 'E' : 'R'))) + '.png'}">
+									<strong th:text="1" class="overlay-tip"></strong>
+								</span>
 								<div th:text="'승률 ' + ${skill6lv.skill_win_rate} + '%'"></div>
 								<div th:text="'픽률 ' + ${skill6lv.skill_percentage} + '%'"></div>
 							</td>

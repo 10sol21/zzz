@@ -40,7 +40,7 @@ body {
 }
 .con4{
 	float: right;
-	margin: -81px 0 0 0;
+	margin: -80.5px 0 0 0;
 	width: 245px;
 }
 button {
@@ -157,11 +157,13 @@ seection span {
 
 .teampo {
 	position: relative;
-	margin: 0 0 0 140px;
+	margin: 0 0 0 100px;
 	justify-content: center;
 	align-items: center;
 }
-
+.myteampo{
+	margin: 0 0 30px 50px
+}
 .width100 {
 	width: 100%;
 	display: flex;
@@ -381,10 +383,10 @@ p {
 	/*	color: black;*/
 }
 
-/*.synergy-result {*/
-/*	height: 400px;*/
+.synergy-result {
+
 /*	margin: 0 350px 0 350px;*/
-/*}*/
+}
 
 #loading {
 	display: none;
@@ -401,8 +403,12 @@ p {
 .wantpo {
 	background-color: #0A1428;
 	color: orange;
+	margin: 0 30px 0 0;
 }
 
+.con5{
+	margin: 0 80px 0 0;
+}
 .position {
 	margin: 0 0 0 750px;
 	height: 100px;
@@ -471,7 +477,7 @@ p {
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    margin: 0 300px 0 0;
+    margin: 0 200px 0 0;
   }
   .question-mark:before {
     content: "?";
@@ -538,7 +544,7 @@ p {
 
 .champName {
 	position: absolute;
-	margin: 55px 0 0 180px;
+	margin: 55px 0 0 140px;
 	background-color: #0A1428;
 
 }
@@ -555,7 +561,7 @@ p {
 .now {
 	width: 500px;
 	height: 50px;
-	margin: 35px 0 0px 102px
+	margin: 35px 0 0px 50px
 }
 
 .tooltip .tooltip-bottom1 {

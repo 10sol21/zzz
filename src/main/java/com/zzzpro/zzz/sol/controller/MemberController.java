@@ -22,16 +22,23 @@ public class MemberController {
 	private MemberService mSer;
 	
 	
+	@PostMapping("/member/join")
+	public String join(MemberDto mDto, RedirectAttributes ra) {
+		mSer.join(mDto, ra);
+		return "redirect:/member/loginfrm";
+	}
 	@GetMapping("/member/loginfrm")
-	public String loginfrm() {
+	public String loginfrm(String page, Model mo) {
+		mo.addAttribute("page", page);
 		return "login_join";
 	}
 	@PostMapping("/member/login")
-	public String login(MemberDto mDto, Model mo, HttpSession session) {
+	public String login(String page, MemberDto mDto, Model mo, HttpSession session) {
 		boolean result = mSer.login(mDto, mo, session);
 		if(result) {
-			return "redirect:/main";
+			return "redirect:/"+page;
 		}
+		mo.addAttribute("page", page);
 		return "login_join";
 	}
 	

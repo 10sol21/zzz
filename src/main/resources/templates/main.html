@@ -23,8 +23,11 @@
 		<button onclick="location.href='/member/logout'">로그아웃</button>
 	</div>
 	<div th:if="${session.member == null}" style="float:right">
-		<button onclick="location.href='/member/loginfrm'">로그인</button>
-
+		<form action="/member/loginfrm">
+			<input type="hidden" name="page" value="main">
+			<button type="submit">로그인</button>
+		</form>
+<!-- 		<button onclick="location.href='/member/loginfrm'">로그인</button> -->
 	</div>
 	<div class="l-container">
 		<div class="header">

@@ -96,7 +96,7 @@ public class ExService {
 	}
 
 	public List<ExDto> tabWin(ExDto eDto) { // champions 메서드에서 받아온 챔피언값 필요함 html에서 라인탭누르면 이쪽으로 넘어온 js실행원리
-		eDto.setLine('%' + eDto.getLine() + '%');
+		eDto.setHighest_pick_rate_position('%' + eDto.getHighest_pick_rate_position() + '%');
 		return eDao.tabWin(eDto);
 	}
 }

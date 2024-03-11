@@ -42,7 +42,6 @@ td {
 	border-left: 1px solid grey; /* 오른쪽 변에만 스타일 지정 */
 	border-bottom: 2px solid black; /* 오른쪽 변에만 스타일 지정 */
 	border-right: 2px solid black; /* 오른쪽 변에만 스타일 지정 */
-	vertical-align: top; /* 상단정렬 */
 	text-align: center;
 }
 
@@ -82,6 +81,16 @@ td img {
 	height: 40px;
 }
 
+td p {
+	font-size: 1.4em;
+	text-align: left;
+/* 	background-color: RGB(53, 84, 105); */
+/* 	color: RGB(205, 228, 241); */
+	background-color: RGB(0,70,59);
+	color: black;
+	background: linear-gradient(to right, #b485e1, #3853a5);
+}
+
 ul {
 	list-style-type: none;
 	padding: 0;
@@ -107,12 +116,28 @@ header * {
 	background-color: inherit;
 }
 
+.width333 {
+	width: 33%;
+}
+
+.width333 * {
+	background-color: inherit;
+}
+
 .width67 {
 	width: 67%;
 	background-color: #1E282D;
 }
 
 .width67 * {
+	background-color: inherit;
+}
+
+.width678 {
+	width: 67%;
+}
+
+.width678 * {
 	background-color: inherit;
 }
 
@@ -278,4 +303,10 @@ header * {
 	width: 90%;
 	border: 2px solid black;
 	margin-bottom: 10px;
+}
+
+.counter {
+	float: left;
+	margin: 7px;
+	border-radius: 50%
 }

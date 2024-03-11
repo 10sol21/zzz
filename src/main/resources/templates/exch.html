@@ -62,7 +62,9 @@
                 <section class="divide">
                     <table class="divide">
                         <tr>
-                            <td colspan="6">룬 세팅</td>
+                            <td colspan="6">
+                            	<p>룬 세팅</p>
+                            </td>
                         </tr>
                         <tr th:each="rune, Index : ${rune}" th:if="${Index.index lt 1}">
                             <td>
@@ -72,38 +74,38 @@
                                 (rune['main_name'] == 8300 ? '영감' :
                                 (rune['main_name'] == 8400 ? '결의' : ''))))}"></div>
                                 <img
-                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perkStyle/' + ${rune['main_name']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
+                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perkStyle/' + ${rune['main_name']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
                                 <img
-                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perk/' + ${rune['main_perks1']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
+                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perk/' + ${rune['main_perks1']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
                                 <img
-                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perk/' + ${rune['main_perks2']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
+                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perk/' + ${rune['main_perks2']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
                                 <img
-                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perk/' + ${rune['main_perks3']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
+                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perk/' + ${rune['main_perks3']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
                                 <img
-                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perk/' + ${rune['main_perks4']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}">
+                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perk/' + ${rune['main_perks4']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}">
                             </td>
-                            <td>
+                            <td style="vertical-align: top">
                                 <span th:text="${rune['sub_name'] == 8000 ? '정밀' :
                                 (rune['sub_name'] == 8100 ? '지배' :
                                 (rune['sub_name'] == 8200 ? '마법' :
                                 (rune['sub_name'] == 8300 ? '영감' :
                                 (rune['sub_name'] == 8400 ? '결의' : '땡'))))}"></span><br>
                                 <img
-                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perkStyle/' + ${rune['sub_name']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
+                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perkStyle/' + ${rune['sub_name']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
                                 <img
-                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perk/' + ${rune['sub_perks1']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
+                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perk/' + ${rune['sub_perks1']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
                                 <img
-                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.3.1/perk/' + ${rune['sub_perks2']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}">
+                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perk/' + ${rune['sub_perks2']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}">
                             </td>
-                            <td>
+                            <td style="vertical-align: top">
                                 <img
                                     th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/perkShard/' + ${rune['stat_perks1']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
                                 <img
                                     th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/perkShard/' + ${rune['stat_perks2']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
                                 <img
-                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/perkShard/' + ${rune['stat_perks3']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br>
-                                <div th:text="'승률 ' + ${rune['rune_win_percentage']} + '%'"></div>
-                                <div th:text="'픽률 ' + ${rune['rune_percentage']} + '%'"></div>
+                                    th:src="@{'https://opgg-static.akamaized.net/meta/images/lol/perkShard/' + ${rune['stat_perks3']} + '.png?image=q_auto,f_png,w_64,h_64&v=1707283412529'}"><br><br><br>
+                                <div th:text="'승률 ' + ${rune['rune_win_percentage']} + '%'" style="font-size: 1.1em"></div>
+                                <div th:text="'픽률 ' + ${rune['rune_percentage']} + '%'" style="font-size: 1.1em"></div>
                             </td>
                         </tr>
                     </table>
@@ -122,35 +124,35 @@
                             <td colspan="2" th:each="skill3lv, Index : ${skill3lv}" th:if="${Index.index lt 1}">
                                 <div>
                                     <img
-                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value1} == 1 ? 'Q' : (${skill3lv.value1} == 2 ? 'W' : (${skill3lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
+                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value1} == 1 ? 'Q' : (${skill3lv.value1} == 2 ? 'W' : (${skill3lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
                                     <span class="arrow-right"></span>
                                     <img
-                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value2} == 1 ? 'Q' : (${skill3lv.value2} == 2 ? 'W' : (${skill3lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
+                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value2} == 1 ? 'Q' : (${skill3lv.value2} == 2 ? 'W' : (${skill3lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
                                     <span class="arrow-right"></span>
                                     <img
-                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value3} == 1 ? 'Q' : (${skill3lv.value3} == 2 ? 'W' : (${skill3lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
+                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value3} == 1 ? 'Q' : (${skill3lv.value3} == 2 ? 'W' : (${skill3lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
                                     <div th:text="'승률 ' + ${skill3lv.skill_win_rate} + '%'"></div>
                                     <div th:text="'픽률 ' + ${skill3lv.skill_percentage} + '%'"></div>
                                 </div>
                             </td>
                             <td colspan="2" th:each="skill6lv, Index : ${skill6lv}" th:if="${Index.index lt 1}">
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value1} == 1 ? 'Q' : (${skill6lv.value1} == 2 ? 'W' : (${skill6lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value1} == 1 ? 'Q' : (${skill6lv.value1} == 2 ? 'W' : (${skill6lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value2} == 1 ? 'Q' : (${skill6lv.value2} == 2 ? 'W' : (${skill6lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value2} == 1 ? 'Q' : (${skill6lv.value2} == 2 ? 'W' : (${skill6lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value3} == 1 ? 'Q' : (${skill6lv.value3} == 2 ? 'W' : (${skill6lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value3} == 1 ? 'Q' : (${skill6lv.value3} == 2 ? 'W' : (${skill6lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value4} == 1 ? 'Q' : (${skill6lv.value4} == 2 ? 'W' : (${skill6lv.value4} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value4} == 1 ? 'Q' : (${skill6lv.value4} == 2 ? 'W' : (${skill6lv.value4} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value5} == 1 ? 'Q' : (${skill6lv.value5} == 2 ? 'W' : (${skill6lv.value5} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value5} == 1 ? 'Q' : (${skill6lv.value5} == 2 ? 'W' : (${skill6lv.value5} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value6} == 1 ? 'Q' : (${skill6lv.value6} == 2 ? 'W' : (${skill6lv.value6} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value6} == 1 ? 'Q' : (${skill6lv.value6} == 2 ? 'W' : (${skill6lv.value6} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <div th:text="'승률 ' + ${skill6lv.skill_win_rate} + '%'"></div>
                                 <div th:text="'픽률 ' + ${skill6lv.skill_percentage} + '%'"></div>
                             </td>
@@ -187,13 +189,13 @@
                                 <tr th:each="core3, Index : ${core3}" th:if="${Index.index lt 2}">
                                     <td colspan="1">
                                         <img
-                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/'+ ${core3.core1} +'.png'}">
+                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/'+ ${core3.core1} +'.png'}">
                                         <span class="arrow-right"></span>
                                         <img
-                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/'+ ${core3.core2} +'.png'}">
+                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/'+ ${core3.core2} +'.png'}">
                                         <span class="arrow-right"></span>
                                         <img
-                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/'+ ${core3.core3} +'.png'}">
+                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/'+ ${core3.core3} +'.png'}">
                                     </td>
                                     <td th:utext="'승률 ' + ${core3['core3_win_percentage']} + '%' + '<br>픽률 ' + ${core3['core3_percentage']} + '%'"
                                         colspan="1">
@@ -209,12 +211,12 @@
                                         <p>시작 아이템</p>
                                     </td>
                                 </tr>
-                                <tr th:each="sitem, Index : ${sitem}" th:if="${Index.index lt 2}">
+                                <tr th:each="sitem, Index : ${sitem}" th:if="${Index.index lt 1}">
                                     <td colspan="1">
                                         <img
-                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/'+ ${sitem['sitem1']} +'.png'}">
+                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/'+ ${sitem['sitem1']} +'.png'}">
                                         <img
-                                            th:src="@{https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/2003.png}">
+                                            th:src="@{https://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/2003.png}">
                                     </td>
                                     <td th:utext="'승률 ' + ${sitem['sitem_win_rate']} + '%' + '<br>픽률 ' + ${sitem['sitem_percentage']} + '%'"
                                         colspan="1">
@@ -230,7 +232,7 @@
                                 <tr th:each="shoes, Index : ${shoes}" th:if="${Index.index lt 2}">
                                     <td colspan="1">
                                         <img
-                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/'+ ${shoes.shoes} +'.png'}">
+                                            th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/'+ ${shoes.shoes} +'.png'}">
                                     </td>
                                     <td th:utext="'승률 ' + ${shoes['shoes_win_percentage']} + '%' + '<br>픽률 ' + ${shoes['shoes_pickRate']} + '%'"
                                         colspan="1">
@@ -254,44 +256,34 @@
                                 <span th:each="counterDESC, Index : ${counterDESC}" th:if="${Index.index lt 5}">
                                     <img alt="초상화"
                                         th:src="'https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/' + ${counterDESC.enemy_champ_en} + '.png'"
-                                        style="border-radius: 50%">
+                                        class="counter">
                                 </span>
                             </td>
                             <td colspan="5">
                                 <span th:each="counter, Index : ${counter}" th:if="${Index.index lt 5}">
                                     <img alt="초상화"
                                         th:src="'https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/' + ${counter.enemy_champ_en} + '.png'"
-                                        style="border-radius: 50%">
+                                        class="counter">
                                 </span>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="5">
                                 <span th:each="counterDESC, Index : ${counterDESC}" th:if="${Index.index lt 5}">
-                                    <span th:text="${counterDESC.counter_win_rate} + '%'" th:if="${Index.index == 0}"
-                                        style="margin: 60px"></span>
-                                    <span th:text="${counterDESC.counter_win_rate} + '%'" th:if="${Index.index == 1}"
-                                        style="margin-left: -45px"></span>
-                                    <span th:text="${counterDESC.counter_win_rate} + '%'" th:if="${Index.index == 2}"
-                                        style="margin-left: 14px"></span>
-                                    <span th:text="${counterDESC.counter_win_rate} + '%'" th:if="${Index.index == 3}"
-                                        style="margin-left: 14px"></span>
-                                    <span th:text="${counterDESC.counter_win_rate} + '%'" th:if="${Index.index == 4}"
-                                        style="margin-left: 13px"></span>
+                                    <span th:text="${counterDESC.counter_win_rate} + '%'"></span>
+<!--                                     <span th:text="${counterDESC.counter_win_rate} + '%'" th:if="${Index.index == 1}" -->
+<!--                                         style="margin-left: -45px"></span> -->
+<!--                                     <span th:text="${counterDESC.counter_win_rate} + '%'" th:if="${Index.index == 2}" -->
+<!--                                         style="margin-left: 14px"></span> -->
+<!--                                     <span th:text="${counterDESC.counter_win_rate} + '%'" th:if="${Index.index == 3}" -->
+<!--                                         style="margin-left: 14px"></span> -->
+<!--                                     <span th:text="${counterDESC.counter_win_rate} + '%'" th:if="${Index.index == 4}" -->
+<!--                                         style="margin-left: 13px"></span> -->
                                 </span>
                             </td>
                             <td colspan="5">
                                 <span th:each="counter, Index : ${counter}" th:if="${Index.index lt 5}">
-                                    <span th:text="${counter.counter_win_rate} + '%'" th:if="${Index.index == 0}"
-                                        style="margin: 60px"></span>
-                                    <span th:text="${counter.counter_win_rate} + '%'" th:if="${Index.index == 1}"
-                                        style="margin-left: -45px"></span>
-                                    <span th:text="${counter.counter_win_rate} + '%'" th:if="${Index.index == 2}"
-                                        style="margin-left: 14px"></span>
-                                    <span th:text="${counter.counter_win_rate} + '%'" th:if="${Index.index == 3}"
-                                        style="margin-left: 14px"></span>
-                                    <span th:text="${counter.counter_win_rate} + '%'" th:if="${Index.index == 4}"
-                                        style="margin-left: 13px"></span>
+                                    <span th:text="${counter.counter_win_rate} + '%'"></span>
                                 </span>
                             </td>
                         </tr>

@@ -16,6 +16,8 @@ li * {
 </style>
 </head>
 <body>
+
+
 <div th:if="${session.member != null}" style="float:right">
 			<p style = "color:white"th:text="${session.member.m_nick}"></p>
 			<button onclick="location.href='/member/logout'">로그아웃</button>
@@ -43,7 +45,8 @@ li * {
                         <label><input type="radio" value="utility" name="aa" class="po">서폿</label>
                     </span>
                 </span>
-			    <span class="width678">
+			    <span class="width678 relative">
+                     <span>
                     <select id="dropDown">
 					    <option value="챌린저">챌린저</option>
 					    <option value="그랜드마스터">그랜드마스터</option>
@@ -59,6 +62,7 @@ li * {
                         <label><input type="radio" value="middle" name="aaa" class="po">미드</label>
                         <label><input type="radio" value="bottom" name="aaa" class="po">원딜</label>
                         <label><input type="radio" value="utility" name="aaa" class="po">서폿</label>
+                    </span>
                     </span>
                 </span>
             </div>

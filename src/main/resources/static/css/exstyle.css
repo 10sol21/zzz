@@ -13,7 +13,13 @@ body {
 }
 
 span label {
+	transition: color 0.3s ease; /* 글자 색상 변경 트랜지션 설정 */
 	cursor: pointer;
+}
+
+span label.active {
+	color: #00ff40 !important;
+	/* 선택된 글씨의 변경할 글자 색상 (important를 사용하여 우선순위 부여) */
 }
 
 button {
@@ -21,8 +27,6 @@ button {
 	color: #fff;
 	margin: 9px;
 	border-radius: 10px;
-	/* 	padding: 2px 4px; */
-	/* 	font-size: 15px; */
 	border: 0;
 	cursor: pointer;
 }
@@ -79,16 +83,15 @@ td a img {
 td img {
 	width: 40px;
 	height: 40px;
+	margin-top: 6px;
+	margin-bottom: 3px
 }
 
 td p {
 	font-size: 1.4em;
 	text-align: left;
-/* 	background-color: RGB(53, 84, 105); */
-/* 	color: RGB(205, 228, 241); */
-	background-color: RGB(0,70,59);
 	color: black;
-	background: linear-gradient(to right, #b485e1, #3853a5);
+	background: linear-gradient(to right, #b485e1, #0A1428);
 }
 
 ul {
@@ -298,15 +301,19 @@ header * {
 .search {
 	padding: 10px;
 	border-radius: 10px;
-	background-color: black;
+	background-color: #1E282D;
 	color: orange;
 	width: 90%;
-	border: 2px solid black;
+	border: 2px solid #0A1428;
 	margin-bottom: 10px;
 }
 
 .counter {
-	float: left;
-	margin: 7px;
+	justify-content: center;
+	margin: 6px;
 	border-radius: 50%
+}
+
+.set {
+	margin-bottom: 5px
 }

@@ -19,7 +19,9 @@ $(document).ready(function() {
 	LoadingWithMask()
 	$.ajax({
 		type: "GET",
-		url: "http://127.0.0.1:8000/summoner/search",
+		//url: "http://127.0.0.1:8000/summoner/search",
+		url: "http://192.168.1.27:8000/summoner/search",
+
 		data: {
 			name: name,
 			tag: tag,
@@ -286,12 +288,6 @@ $(document).ready(function() {
 						var I_tier = JSON.stringify(result.total_Data_list[l][i].solo_tier).slice(1, -1);
 						var I_rank = JSON.stringify(result.total_Data_list[l][i].solo_rank).slice(1, -1);
 						var I_point = JSON.stringify(result.total_Data_list[l][i].solo_rankpoint);
-
-						console.log(I_tier)
-						console.log(I_rank)
-						console.log(I_point)
-
-
 
 					} //검색한 소환사 확인
 
@@ -1483,7 +1479,9 @@ function submitForm() {
 	// AJAX 요청 실행
 	$.ajax({
 		type: "GET",
-		url: "http://127.0.0.1:8000/summoner/search",
+		//url: "http://127.0.0.1:8000/summoner/search",
+		url: "http://192.168.1.27:8000/summoner/search",
+
 		data: {
 			name: name,
 			tag: tag,

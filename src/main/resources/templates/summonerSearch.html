@@ -26,7 +26,6 @@
 		/* 원하는 너비로 설정 */
 		height: 5500px;
 		/* 원하는 높이로 설정 */
-		border: solid white 1px;
 		position: relative;
 		top: 10px;
 		padding: 50px;
@@ -179,6 +178,12 @@
 
 <body>
 	<div id="container" class="l-container">
+
+		<header class="insert">
+			<div th:insert="~{header :: h1}" class="logo">로고</div>
+			<div th:insert="~{header :: ul}" class="header">헤더</div>
+		</header>
+
 		<div id="profill">
 			<div id="icon"></div>
 			<div id="name"></div>

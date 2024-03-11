@@ -19,42 +19,42 @@
         <div th:insert="~{header :: ul}" class="header">헤더</div>
     </header>
 
-    <div class="head-container" style="border-top: 3px solid">
-        <header style="display: flex; justify-content: center">
-            <img th:alt="초상화" th:src="|https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${championName}.png|"
-                alt="초상화" class="divide" style="width:100px; height:100px">
-            <!-- 탭 메뉴 시작 -->
-            <table style="background-color: #0A1428;">
-                <tr th:each="mostLine : ${mostLine}">
-                    <td onclick="showTab('tab1')" class="tab">
-                        <img th:src="@{/img/position/Diamond-Top.png}">
-                        <div th:utext="'탑&#10;' + ${mostLine.top_rate} + '%'"></div>
-                    </td>
-                    <td onclick="showTab('tab2')" class="tab">
-                        <img th:src="@{/img/position/Diamond-Jungle.png}">
-                        <div th:utext="'정글&#10;' + ${mostLine.jug_rate} + '%'"></div>
-                    </td>
-                    <td onclick="showTab('tab3')" class="tab">
-                        <img th:src="@{/img/position/Diamond-Mid.png}">
-                        <div th:utext="'미드&#10;' + ${mostLine.mid_rate} + '%'"></div>
-                    </td>
-                    <td onclick="showTab('tab4')" class="tab">
-                        <img th:src="@{/img/position/Diamond-Bot.png}">
-                        <div th:utext="'바텀&#10;' + ${mostLine.bot_rate} + '%'"></div>
-                    </td>
-                    <td onclick="showTab('tab5')" class="tab">
-                        <img th:src="@{/img/position/Diamond-Support.png}">
-                        <div th:utext="'서폿&#10;' + ${mostLine.sup_rate} + '%'"></div>
-                    </td>
-                </tr>
-            </table>
-            <!-- 탭 메뉴 끝 -->
-            <div class="divide">
-                <span th:insert="~{ex :: select}" class="divide"></span>
-                <p></p>
-            </div>
-        </header>
-    </div>
+<!--     <div class="head-container" style="border-top: 3px solid"> -->
+<!--         <header style="display: flex; justify-content: center"> -->
+<!--             <img th:alt="초상화" th:src="|https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/${championName}.png|" -->
+<!--                 alt="초상화" class="divide" style="width:100px; height:100px"> -->
+<!--             탭 메뉴 시작 -->
+<!--             <table style="background-color: #0A1428;"> -->
+<!--                 <tr th:each="mostLine : ${mostLine}"> -->
+<!--                     <td onclick="showTab('tab1')" class="tab"> -->
+<!--                         <img th:src="@{/img/position/Diamond-Top.png}"> -->
+<!--                         <div th:utext="'탑&#10;' + ${mostLine.top_rate} + '%'"></div> -->
+<!--                     </td> -->
+<!--                     <td onclick="showTab('tab2')" class="tab"> -->
+<!--                         <img th:src="@{/img/position/Diamond-Jungle.png}"> -->
+<!--                         <div th:utext="'정글&#10;' + ${mostLine.jug_rate} + '%'"></div> -->
+<!--                     </td> -->
+<!--                     <td onclick="showTab('tab3')" class="tab"> -->
+<!--                         <img th:src="@{/img/position/Diamond-Mid.png}"> -->
+<!--                         <div th:utext="'미드&#10;' + ${mostLine.mid_rate} + '%'"></div> -->
+<!--                     </td> -->
+<!--                     <td onclick="showTab('tab4')" class="tab"> -->
+<!--                         <img th:src="@{/img/position/Diamond-Bot.png}"> -->
+<!--                         <div th:utext="'바텀&#10;' + ${mostLine.bot_rate} + '%'"></div> -->
+<!--                     </td> -->
+<!--                     <td onclick="showTab('tab5')" class="tab"> -->
+<!--                         <img th:src="@{/img/position/Diamond-Support.png}"> -->
+<!--                         <div th:utext="'서폿&#10;' + ${mostLine.sup_rate} + '%'"></div> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--             </table> -->
+<!--             탭 메뉴 끝 -->
+<!--             <div class="divide"> -->
+<!--                 <span th:insert="~{ex :: select}" class="divide"></span> -->
+<!--                 <p></p> -->
+<!--             </div> -->
+<!--         </header> -->
+<!--     </div> -->
     <div class="container">
         <!-- 탭 1내용 시작 -->
         <div id="tab1-content" class="tab-content">
@@ -122,35 +122,35 @@
                             <td colspan="2" th:each="skill3lv, Index : ${skill3lv}" th:if="${Index.index lt 1}">
                                 <div>
                                     <img
-                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value1} == 1 ? 'Q' : (${skill3lv.value1} == 2 ? 'W' : (${skill3lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
+                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value1} == 1 ? 'Q' : (${skill3lv.value1} == 2 ? 'W' : (${skill3lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
                                     <span class="arrow-right"></span>
                                     <img
-                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value2} == 1 ? 'Q' : (${skill3lv.value2} == 2 ? 'W' : (${skill3lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
+                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value2} == 1 ? 'Q' : (${skill3lv.value2} == 2 ? 'W' : (${skill3lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
                                     <span class="arrow-right"></span>
                                     <img
-                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value3} == 1 ? 'Q' : (${skill3lv.value3} == 2 ? 'W' : (${skill3lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
+                                        th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill3lv.championName} + (${skill3lv.value3} == 1 ? 'Q' : (${skill3lv.value3} == 2 ? 'W' : (${skill3lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
                                     <div th:text="'승률 ' + ${skill3lv.skill_win_rate} + '%'"></div>
                                     <div th:text="'픽률 ' + ${skill3lv.skill_percentage} + '%'"></div>
                                 </div>
                             </td>
                             <td colspan="2" th:each="skill6lv, Index : ${skill6lv}" th:if="${Index.index lt 1}">
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value1} == 1 ? 'Q' : (${skill6lv.value1} == 2 ? 'W' : (${skill6lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value1} == 1 ? 'Q' : (${skill6lv.value1} == 2 ? 'W' : (${skill6lv.value1} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value2} == 1 ? 'Q' : (${skill6lv.value2} == 2 ? 'W' : (${skill6lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value2} == 1 ? 'Q' : (${skill6lv.value2} == 2 ? 'W' : (${skill6lv.value2} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value3} == 1 ? 'Q' : (${skill6lv.value3} == 2 ? 'W' : (${skill6lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value3} == 1 ? 'Q' : (${skill6lv.value3} == 2 ? 'W' : (${skill6lv.value3} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value4} == 1 ? 'Q' : (${skill6lv.value4} == 2 ? 'W' : (${skill6lv.value4} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value4} == 1 ? 'Q' : (${skill6lv.value4} == 2 ? 'W' : (${skill6lv.value4} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value5} == 1 ? 'Q' : (${skill6lv.value5} == 2 ? 'W' : (${skill6lv.value5} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value5} == 1 ? 'Q' : (${skill6lv.value5} == 2 ? 'W' : (${skill6lv.value5} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <span class="arrow-right"></span>
                                 <img
-                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/10.6.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value6} == 1 ? 'Q' : (${skill6lv.value6} == 2 ? 'W' : (${skill6lv.value6} == 3 ? 'E' : 'R'))) + '.png'}">
+                                    th:src="@{'https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/' + ${skill6lv.championName} + (${skill6lv.value6} == 1 ? 'Q' : (${skill6lv.value6} == 2 ? 'W' : (${skill6lv.value6} == 3 ? 'E' : 'R'))) + '.png'}">
                                 <div th:text="'승률 ' + ${skill6lv.skill_win_rate} + '%'"></div>
                                 <div th:text="'픽률 ' + ${skill6lv.skill_percentage} + '%'"></div>
                             </td>

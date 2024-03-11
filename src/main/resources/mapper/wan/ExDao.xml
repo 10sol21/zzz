@@ -14,7 +14,7 @@
 		AS bot_rate,
 		ROUND(SUM(CASE WHEN teamPosition = 'UTILITY' THEN 1 ELSE 0 END) / COUNT(*) * 100, 2)
 		AS sup_rate
-		FROM rune WHERE championName = #{championName} AND tier1='에메랄드';
+		FROM zzz_datas_rune WHERE championName = #{championName} AND tier1='에메랄드';
 	</select>
 
 	<select id="rune">
@@ -28,7 +28,7 @@
 		SELECT * FROM spell
 		WHERE championName=#{championName}
 		AND teamPosition=#{highest_pick_rate_position}
-		AND tier1='에메랄드'
+		AND tier1='에메랄드' ORDER BY spell_rate DESC
 	</select>
 	
 	<select id="skill3lv">
@@ -44,7 +44,7 @@
 	<select id="core3">
 		SELECT * FROM core3
 		WHERE championName=#{championName}
-		AND teamPosition=#{highest_pick_rate_position} AND tier1='그랜드마스터'
+		AND teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
 		ORDER BY
 		core3_count DESC
 	</select>
@@ -58,7 +58,7 @@
 	<select id="shoes">
 		SELECT * FROM shoes
 		WHERE championName=#{championName}
-		AND teamPosition=#{highest_pick_rate_position} AND tier1='그랜드마스터'
+		AND teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
 	</select>
 
 	<select id="counterDESC">
@@ -66,7 +66,7 @@
 		FROM counter
 		WHERE
 		championName=#{championName} AND
-		teamPosition=#{highest_pick_rate_position} AND tier1='마스터'
+		teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
 		HAVING
 		counter_win_rate != 100 AND counter_win_rate != 0 AND
 		counter_win_rate
@@ -79,7 +79,7 @@
 		FROM counter
 		WHERE
 		championName=#{championName} AND
-		teamPosition=#{highest_pick_rate_position} AND tier1='마스터'
+		teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
 		HAVING
 		counter_win_rate != 100 AND counter_win_rate != 0 AND
 		counter_win_rate

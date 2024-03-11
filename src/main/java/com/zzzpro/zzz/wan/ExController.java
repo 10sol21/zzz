@@ -19,10 +19,17 @@ public class ExController {
 	}
 
 	@GetMapping("/ex/{championName}/{highest_pick_rate_position}")
-	public String detail(@PathVariable String championName, @PathVariable String highest_pick_rate_position,
+	public String allinfo(@PathVariable String championName, @PathVariable String highest_pick_rate_position,
 			Model model) {
 		eSer.allinfo(championName, highest_pick_rate_position, model);
 		return "exch";
+	}
+	
+	@GetMapping("/ex/{championName}/{highest_pick_rate_position}/detail")
+	public String detail(@PathVariable String championName, @PathVariable String highest_pick_rate_position,
+			Model model) {
+		eSer.allinfo(championName, highest_pick_rate_position, model);
+		return "exdetail";
 	}
 
 }

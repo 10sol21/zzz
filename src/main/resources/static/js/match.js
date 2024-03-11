@@ -115,7 +115,77 @@ function handleClick(event) {
 	}
 
 }
+	$(document).ready(function () {
+    $('#loading').hide();
+    $('.myteamPosition').click(function () {
 
+        var isChecked = $('input[name="teamPosition"]:checked').length > 0;
+        var isInputted = $('#championName').val().trim() !== '';
+        
+        if (isChecked && isInputted) {
+            $('#loading').show();
+            $('#outputImage').show();
+            $('.con4').show();
+            return true;
+        } else {
+			$('#outputImage').hide();
+            $('.con4').hide();
+        	
+            return false;
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+		var selectedTextValueParagraph = document.getElementById('selectedTextValue');
+		var selectedImageValueParagraph = document.getElementById('selectedImageValue');
+		var currentImage = null; // 변수를 추가하여 현재 이미지를 추적합니다.
+
+		var radioButtons = document.querySelectorAll('input[type="radio"].poRadio');
+
+		radioButtons.forEach(function (radioButton) {
+			radioButton.addEventListener('change', function () {
+				if (this.checked) {
+					var position = "";
+					var imageUrl = "";
+					switch (this.value) {
+						case "top":
+							position = "탑";
+							imageUrl = "/img/position/Diamond-Top.png";
+							break;
+						case "jungle":
+							position = "정글";
+							imageUrl = "/img/position/Diamond-Jungle.png";
+							break;
+						case "middle":
+							position = "미드";
+							imageUrl = "/img/position/Diamond-Mid.png";
+							break;
+						case "bottom":
+							position = "원딜";
+							imageUrl = "/img/position/Diamond-Bot.png";
+							break;
+						case "utility":
+							position = "서폿";
+							imageUrl = "/img/position/Diamond-Support.png";
+							break;
+						default:
+							position = "알 수 없음";
+					}
+					selectedTextValueParagraph.textContent = "내 라인: " + position;
+					// Append the image to the selectedValueParagraph
+					if (currentImage) {
+						selectedImageValueParagraph.removeChild(currentImage);
+					}
+					var image = document.createElement('img');
+					image.src = imageUrl;
+					selectedImageValueParagraph.appendChild(image);
+					currentImage = image;
+				}
+			});
+		});
+		
+	});
 
 /* ====================== gameMate,gameMode,tier 변경 체크 ====================== */
 $('input[name=teamPosition]').on('change', function() {

@@ -14,13 +14,13 @@
 		AS bot_rate,
 		ROUND(SUM(CASE WHEN teamPosition = 'UTILITY' THEN 1 ELSE 0 END) / COUNT(*) * 100, 2)
 		AS sup_rate
-		FROM zzz_datas_rune WHERE championName = #{championName} AND tier1='에메랄드';
+		FROM zzz_datas_rune WHERE championName = #{championName} AND tier1='마스터';
 	</select>
 
 	<select id="rune">
 		SELECT * FROM rune
 		WHERE championName=#{championName}
-		AND teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
+		AND teamPosition=#{highest_pick_rate_position}
 		ORDER BY rune_percentage DESC
 	</select>
 
@@ -28,25 +28,20 @@
 		SELECT * FROM spell
 		WHERE championName=#{championName}
 		AND teamPosition=#{highest_pick_rate_position}
-		AND tier1='에메랄드' ORDER BY spell_rate DESC
+		 ORDER BY spell_rate DESC
 	</select>
 	
 	<select id="skill3lv">
 	SELECT * FROM skill3lv1 WHERE championName=#{championName} AND
-	teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드' ORDER BY skill_percentage DESC
+	teamPosition=#{highest_pick_rate_position} ORDER BY skill_percentage DESC
 	</select>
 	
 	<select id="skill6lv">
 	SELECT * FROM skill6lv1 WHERE championName=#{championName} AND
-	teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드' ORDER BY skill_percentage DESC
+	teamPosition=#{highest_pick_rate_position} ORDER BY skill_percentage DESC
 	</select>
 
 	<select id="core3">
-<!-- 		SELECT * FROM core3 -->
-<!-- 		WHERE championName=#{championName} -->
-<!-- 		AND teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드' -->
-<!-- 		ORDER BY -->
-<!-- 		core3_count DESC -->
 			SELECT * FROM core3
 			WHERE core1!=core2 AND core1!=core3 AND core2!=core3 
 			AND championName=#{championName} AND teamposition=#{highest_pick_rate_position}
@@ -56,13 +51,13 @@
 	<select id="sitem">
 		SELECT * FROM sitem
 		WHERE championName=#{championName}
-		AND teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
+		AND teamPosition=#{highest_pick_rate_position}
 	</select>
 
 	<select id="shoes">
 		SELECT * FROM shoes
 		WHERE championName=#{championName}
-		AND teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
+		AND teamPosition=#{highest_pick_rate_position}
 	</select>
 
 	<select id="counterDESC">
@@ -70,7 +65,7 @@
 		FROM counter
 		WHERE
 		championName=#{championName} AND
-		teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
+		teamPosition=#{highest_pick_rate_position}
 		HAVING
 		counter_win_rate != 100 AND counter_win_rate != 0 AND
 		counter_win_rate
@@ -83,7 +78,7 @@
 		FROM counter
 		WHERE
 		championName=#{championName} AND
-		teamPosition=#{highest_pick_rate_position} AND tier1='에메랄드'
+		teamPosition=#{highest_pick_rate_position}
 		HAVING
 		counter_win_rate != 100 AND counter_win_rate != 0 AND
 		counter_win_rate

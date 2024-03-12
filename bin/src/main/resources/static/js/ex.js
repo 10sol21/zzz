@@ -27,6 +27,7 @@ $('input[name=aa]').on('change', function() {
 		}
 	});
 });
+
 // -------------------------------------------------------------------------------- //
 
 $('input[name=aaa]').on('change', function() {
@@ -92,9 +93,8 @@ function getPositionImage(position) {
 	}
 }
 
-
-
 // -------------------------------------------------------------------------------- //
+
 $('#searchInput').on('input', function() {
 	var searchText = $(this).val();
 
@@ -149,3 +149,23 @@ function updateChampionList(champions) {
 		$('#searchBar').empty().append(html);
 	}
 }
+
+// -------------------------------------------------------------------------------- //
+
+let selectedLabel = null; // 선택된 라벨을 저장하는 변수
+// 이벤트 리스너 추가
+document.querySelectorAll('.po').forEach(function(radio) {
+	radio.addEventListener('click', function() {
+		// 이전에 선택된 라벨이 있다면 해제
+		if (selectedLabel !== null) {
+			selectedLabel.classList.remove('active');
+			selectedLabel.style.color = ''; // 기본 색상으로 되돌리기
+		}
+
+		// 클릭된 라벨에 'active' 클래스 추가하여 글자 색상 변경 및 고정
+		this.parentElement.classList.add('active');
+
+		// 선택된 라벨 저장
+		selectedLabel = this.parentElement;
+	});
+});

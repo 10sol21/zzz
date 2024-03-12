@@ -16,23 +16,14 @@ li * {
 </style>
 </head>
 <body>
-<div th:if="${session.member != null}" style="float:right">
-			<p style = "color:white"th:text="${session.member.m_nick}"></p>
-			<button onclick="location.href='/member/logout'">로그아웃</button>
-			</div>
-			<div th:if="${session.member == null}" style="float:right" >
-			<button onclick="location.href='/member/loginfrm'">로그인</button>
-			
-		</div>
     <div class="l-container">
-        
         <header class="insert">
         	<div th:insert="~{header :: h1}" class="logo">로고</div>
         	<div th:insert="~{header :: ul}" class="header">헤더</div>
         </header>
         <div>
             <div class="flex">
-                <span class="width33" style="padding: 10px;">
+                <span class="width333" style="padding: 10px;">
                     <input type="text" id="searchInput" placeholder="챔피언 검색(가렌, ㄱㄹ, ...)" class="search"><br>
                     <span>
                         <label><input type="radio" value="" name="aa" class="po" checked="checked">전체</label>
@@ -43,7 +34,8 @@ li * {
                         <label><input type="radio" value="utility" name="aa" class="po">서폿</label>
                     </span>
                 </span>
-			    <span class="width67">
+			    <span class="width678 relative" style="display: grid; align-items: end">
+                     <span>
                     <select id="dropDown">
 					    <option value="챌린저">챌린저</option>
 					    <option value="그랜드마스터">그랜드마스터</option>
@@ -60,10 +52,11 @@ li * {
                         <label><input type="radio" value="bottom" name="aaa" class="po">원딜</label>
                         <label><input type="radio" value="utility" name="aaa" class="po">서폿</label>
                     </span>
+                    </span>
                 </span>
             </div>
             <div class="flex">
-                <div id="tabKr" class="width33">
+                <div id="tabKr" class="width333">
                     <ul id="searchBar" class="width100">
                         <li th:each="champion : ${champions}">
     						<a th:href="@{/ex/{championName}/{highest_pick_rate_position}(championName=${champion.championName}, highest_pick_rate_position=${champion.highest_pick_rate_position})}"
@@ -75,20 +68,18 @@ li * {
 						</li>
                     </ul>
                 </div>
-                <table class="width67">
-                    <thead>
+                <table class="width678">
+                    <thead style="background-color: #1E282D">
                         <tr>
                             <td style="width: 6.25%">순위</td>
-                            <td class="left" style="width: 25%">챔피언</td>
-                            <td style="width: 6.25%">티어</td>
+                            <td class="left" style="width: 20%">챔피언</td>
                             <td style="width: 12.5%">포지션</td>
                             <td style="width: 12.5%">승률</td>
                             <td style="width: 12.5%">픽률</td>
                             <td style="width: 12.5%">밴률</td>
-                            <td style="width: 25%">카운터</td>
                         </tr>
                     </thead>
-                    <tbody id="tabWin">
+                    <tbody id="tabWin" style="background-color: #1E282D">
                         <tr th:each="champion, chIndex : ${championList}">
                             <td th:text="${chIndex.index + 1}">순위</td>
                             <td class="flex">
@@ -98,7 +89,6 @@ li * {
                                     <strong class="strong" th:text="${champion['championName_KR']}">이름</strong>
                                 </a>
                             </td>
-                            <td>티어</td>
                             <td>
                                 <img th:src="|${champion.highest_pick_rate_position == 'top' ? '../img/position/Diamond-Top.png' : 
 								(champion.highest_pick_rate_position == 'jungle' ? '../img/position/Diamond-Jungle.png' : 
@@ -110,11 +100,6 @@ li * {
                             <td th:text="|${champion['winrate']}%|">승률</td>
                             <td th:text="|${champion['pickrate']}%|">픽률</td>
                             <td th:text="|${champion['banrate']}%|">밴율</td>
-                            <td>
-<!--                     			<div th:each="counterChampion : ${counters}"> -->
-                        			<span>카운터</span>
-<!--                     			</div> -->
-		            		</td>
                         </tr>
                     </tbody>
 

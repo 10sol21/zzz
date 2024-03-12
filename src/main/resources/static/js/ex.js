@@ -48,19 +48,13 @@ $('input[name=aaa]').on('change', function() {
 					html += '<strong class="strong">' + championList[i].championName_kr + '</strong>';
 					html += '</a>';
 					html += '</td>';
-					html += '<td>티어</td>';
-					html += '<td>';
 					// 이미지 소스를 동적으로 설정
+					html += '<td>';
 					html += '<img src="' + getPositionImage(championList[i].highest_pick_rate_position) + '" style="width: 30px; height:30px">';
 					html += '</td>';
 					html += '<td>' + championList[i].winrate + '%</td>';
 					html += '<td>' + championList[i].pickrate + '%</td>';
 					html += '<td>' + championList[i].banrate + '%</td>';
-					html += '<td>';
-					html += '<div>';
-					html += '<span>카운터</span>';
-					html += '</div>';
-					html += '</td>';
 					html += '</tr>';
 				}
 

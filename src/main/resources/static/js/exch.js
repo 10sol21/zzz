@@ -3,8 +3,17 @@ function showTab(tabId) {
 	document.querySelectorAll('.tab-content').forEach(function(tabContent) {
 		tabContent.style.display = 'none';
 	});
+	
 	// 선택한 탭의 내용을 보이게 함
-	document.getElementById(tabId + '-content').style.display = 'block';
+	let lineL = ['top','jungle','middle','bottom','UTILITY']
+	for(let i=0; i<lineL.length; i++){
+		if(lineL[i]==tabId){
+			document.getElementById('line-content'+(i+1)).style.display = 'block';
+		}else{
+			document.getElementById('line-content'+(i+1)).style.display = 'none';
+		}
+	}
+	//document.getElementById(tabId + '-content').style.display = 'block';
 	console.log('showTab값', tabId);
 }
 
@@ -27,6 +36,8 @@ $(() => {
 	var championName = pathSegments[2];
 	var desiredSegment = pathSegments[3]; // 예시로 세 번째 세그먼트를 가져오는 것입니다.
 
+	
+	
 	// HTML 로드 후 실행
 	$(document).ready(function() {
 		console.log('챔피언 이름', championName);
@@ -35,7 +46,9 @@ $(() => {
 		//		document.getElementById('output').innerText = desiredSegment;
 
 		// desiredSegment 값을 기반으로 해당 탭을 표시
+		
 		showTab(desiredSegment);
+		
 	});
 
 	// 결과 출력

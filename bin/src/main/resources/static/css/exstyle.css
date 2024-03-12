@@ -90,8 +90,8 @@ td img {
 td p {
 	font-size: 1.4em;
 	text-align: left;
-	color: black;
-	background: linear-gradient(to right, #b485e1, #0A1428);
+	color: #DFF5DB;
+	background: linear-gradient(to right, green, #0A1428);
 }
 
 ul {
@@ -325,7 +325,7 @@ ul {
 	right: 0;
 	border-radius: 50%;
 	color: white;
-	background-color: black;
+	background-color: green;
 	width: 30px;
 	height: 25px;
 }
@@ -342,7 +342,7 @@ ul {
 	right: 0;
 	border-radius: 50%;
 	color: white;
-	background-color: black;
+	background-color: green;
 	width: 20px;
 	height: 20px;
 }

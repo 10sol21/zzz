@@ -9,7 +9,7 @@ async def fetch(session, url):
 
 async def main(nickName, tag):
     gameC = 10
-    api_key = "RGAPI-78da9020-cc2c-44d5-9706-2359494f0689"
+    api_key = "RGAPI-5572cc08-0e6d-41e4-8f01-557e074fd8c3"
 
     async with aiohttp.ClientSession() as session:
         url1 = f'https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{nickName}/{tag}?api_key={api_key}'

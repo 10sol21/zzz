@@ -18,14 +18,6 @@
 
 <body>
 	<div class="l-container">
-	<div th:if="${session.member != null}" style="float:right">
-		<p style="color:white" th:text="${session.member.m_nick}"></p>
-		<button style="background-color: #1b5ac2;" onclick="location.href='/member/logout'">로그아웃</button>
-	</div>
-	<div th:if="${session.member == null}" style="float:right">
-		<button style="background-color: #1b5ac2;" onclick="location.href='/member/loginfrm'">로그인</button>
-
-	</div>
 	<header class="insert">
 		<div th:insert="~{header :: h1}" class="logo">로고</div>
 		<div th:insert="~{header :: ul}" class="header">헤더</div>

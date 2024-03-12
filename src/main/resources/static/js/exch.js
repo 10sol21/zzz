@@ -3,9 +3,21 @@ function showTab(tabId) {
 	document.querySelectorAll('.tab-content').forEach(function(tabContent) {
 		tabContent.style.display = 'none';
 	});
+	
 	// 선택한 탭의 내용을 보이게 함
-	document.getElementById(tabId + '-content').style.display = 'block';
+	let lineL = ['top','jungle','middle','bottom','UTILITY']
+	for(let i=0; i<lineL.length; i++){
+		if(lineL[i]==tabId){
+			document.getElementById('line-content'+(i+1)).style.display = 'block';
+		}else{
+			document.getElementById('line-content'+(i+1)).style.display = 'none';
+		}
+	}
+	//document.getElementById(tabId + '-content').style.display = 'block';
+	console.log('showTab값', tabId);
 }
+
+// -------------------------------------------------------------------------------- //
 
 $(() => {
 	// 현재 페이지 주소 가져오기
@@ -21,17 +33,23 @@ $(() => {
 	var pathSegments = currentPagePathname.split('/');
 
 	// 예시: 특정 위치의 경로 세그먼트 가져오기
+	var championName = pathSegments[2];
 	var desiredSegment = pathSegments[3]; // 예시로 세 번째 세그먼트를 가져오는 것입니다.
 
+	
+	
 	// HTML 로드 후 실행
 	$(document).ready(function() {
-		console.log("ready!");
-		document.getElementById('output').innerText = pathSegments[3];
+		console.log('챔피언 이름', championName);
+		console.log('선택된 라인', desiredSegment);
+
+		//		document.getElementById('output').innerText = desiredSegment;
+
+		// desiredSegment 값을 기반으로 해당 탭을 표시
+		
+		showTab(desiredSegment);
+		
 	});
-//	document.addEventListener('DOMContentLoaded', function() {
-//
-//		// HTML 요소에 값 삽입
-//	})
 
 	// 결과 출력
 	console.log("전체 주소:", currentPageURL);
@@ -40,13 +58,4 @@ $(() => {
 	console.log("세그먼트:", pathSegments[3]);
 	console.log("특정 세그먼트:", desiredSegment);
 
-
-//	let 주소;
-//	let line = 주소에서자른거
-//	let lines = ['top', 'jungle', 'mid', 'adc', 'sup']
-	//	for (let i = 0; i < line.length; i++) {
-	//		if (line == lines[i]) {
-	//			showTab('tab' + (i + 1))
-	//		}
-	//	}
 })

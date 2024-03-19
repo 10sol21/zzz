@@ -569,6 +569,7 @@ function lmAjax(){
 		if(id != ""){
 			$('#lmInfoChoice').css('display','inline-block')
 			document.getElementById('dmBtn').disabled = false;
+			$('#dmBtn').css('background-color','#1b5ac2')
 			for(let i=0; i<$('.appBtn').length; i++){
 				document.getElementsByClassName('appBtn')[i].disabled = false;
 			}

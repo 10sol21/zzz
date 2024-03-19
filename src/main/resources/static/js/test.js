@@ -14,9 +14,13 @@ var botPick = 0;
 var supPick = 0;
 
 
+
+
 $(document).ready(function() {
 	// AJAX 요청 실행
+
 	LoadingWithMask()
+
 	$.ajax({
 		type: "GET",
 		//url: "http://127.0.0.1:8000/summoner/search",
@@ -39,7 +43,6 @@ $(document).ready(function() {
 			$('.ddd').css({
 				"display": "block"
 			})
-
 
 			for (var l = 0; l < result.total_Data_list.length; l++) {
 				var championNames = []
@@ -288,6 +291,8 @@ $(document).ready(function() {
 						var I_tier = JSON.stringify(result.total_Data_list[l][i].solo_tier).slice(1, -1);
 						var I_rank = JSON.stringify(result.total_Data_list[l][i].solo_rank).slice(1, -1);
 						var I_point = JSON.stringify(result.total_Data_list[l][i].solo_rankpoint);
+						
+						var I_history = JSON.stringify(result.total_Data_list[l][i].history).slice(1, -1);
 
 					} //검색한 소환사 확인
 
@@ -313,7 +318,8 @@ $(document).ready(function() {
         <div id="background_padding">
             <div id="win">
                 <span>${win}</span><br><br>
-                <span>${playtime[0]}</span>
+                <span>${playtime[0]}</span><br>
+                <span>${I_history}</span>
             </div>
 
             <div id="champion_info">
@@ -1333,7 +1339,8 @@ $(document).ready(function() {
 
 
 				})
-			} //for문 전적검색 수		
+			} //for문 전적검색 수	
+
 			let resulttt = champList.map((item, index) => [item, winLoss[index]]);
 
 
@@ -1367,12 +1374,8 @@ $(document).ready(function() {
 			</div>
 			
 			`)
-
-
-
-
-
 			}
+
 			let winResult = winLoss.reduce((acc, cur) => {
 				if (acc.hasOwnProperty(cur)) {
 					acc[cur]++;
@@ -1462,7 +1465,14 @@ $(document).ready(function() {
 			closeLoadingWithMask()
 
 
+		},
+		error: function(result) {
+			console.log(result);
+			alert('없는 소환사입니다.');
+			window.location.href = "/main";
+
 		}
+
 	});
 
 });
@@ -1727,6 +1737,7 @@ function submitForm() {
 							supPick++;
 						}
 						var totalPick = topPick + jgPick + midPick + botPick + supPick
+						var I_history = JSON.stringify(result.total_Data_list[l][i].history).slice(1, -1);
 
 
 					} //검색한 소환사 확인
@@ -1743,7 +1754,8 @@ function submitForm() {
        <div id="background_padding">
            <div id="win">
                <span>${win}</span><br><br>
-               <span>${playtime[0]}</span>
+               <span>${playtime[0]}</span><br>
+               <span>${I_history}</span>
            </div>
 
            <div id="champion_info">
@@ -2807,8 +2819,8 @@ function submitForm() {
 				}
 				return acc;
 			}, {});
-			let winTostring = parseInt(JSON.stringify(winResult.True));
-			let lossTostring = parseInt(JSON.stringify(winResult.False));
+			let winTostring = winResult.True ? parseInt(JSON.stringify(winResult.True)) : 0;
+			let lossTostring = winResult.False ? parseInt(JSON.stringify(winResult.False)) : 0;
 			let win_rating = Math.round(winTostring / (winTostring + lossTostring) * 100)
 
 
@@ -2865,7 +2877,7 @@ var total = l + start
 function sibla(total) {
 	var line1 = document.getElementById("hidden-table" + total);
 	line1.style.display = ((line1.style.display != 'none') ? 'none' : 'block');
-	
+
 	var button = document.getElementById(`hideButton${total}`);
 	var value = button.value;
 	if (value === "자세히") {
@@ -2912,5 +2924,3 @@ function closeLoadingWithMask() {
 	$('#mask').hide();
 	$('#mask').remove();
 }
-
-
